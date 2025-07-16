@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>सरल क्विज</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 15px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>हिंदी सामान्य ज्ञान क्विज़</h2>
+
+  <div class="question">
+    <p>1. भारत के पहले प्रधानमंत्री कौन थे?</p>
+    <input type="radio" name="q1" value="a"> महात्मा गांधी<br>
+    <input type="radio" name="q1" value="b"> जवाहरलाल नेहरू<br>
+    <input type="radio" name="q1" value="c"> सुभाष चंद्र बोस<br>
+  </div>
+
+  <div class="question">
+    <p>2. ताजमहल कहाँ स्थित है?</p>
+    <input type="radio" name="q2" value="a"> मुंबई<br>
+    <input type="radio" name="q2" value="b"> दिल्ली<br>
+    <input type="radio" name="q2" value="c"> आगरा<br>
+  </div>
+
+  <button onclick="checkAnswers()">जवाब जाँचें</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+
+      if (q1 && q1.value === "b") score++;
+      if (q2 && q2.value === "c") score++;
+
+      document.getElementById("result").textContent = आपका स्कोर: ${score}/2;
+    }
+  </script>
+</body>
+</html>
